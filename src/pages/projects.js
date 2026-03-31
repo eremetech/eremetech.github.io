@@ -34,7 +34,7 @@ const ProjectsPage = ({ data, location }) => {
       id: 3,
       slug: "menstedo",
       title: "menstedo",
-      description: "A cycle tracking app for teenagers that helps to navigate what is normal and what is not.",
+      description: "A cycle tracking app for teenagers that helps to navigate what is normal.",
       functionality: "menstedo is a menstrual cycle tracker built with a focus on education foe young girls. The main aim is to help them understand the different processes and be able to distinguish normal patterns from pathologies. Beyond tracking period dates and symptoms, it walks you through the phases of your cycle and what to expect during each one — covering topics like what's normal, what can go different, and when to see a doctor. \n \n The main unique feature is the dedicated learn section with interactive content on cycle basics, phases, and symptoms — making it a tool for understanding your body, not just recording data.",
       logo: menstedoLogo,
       screens: []
