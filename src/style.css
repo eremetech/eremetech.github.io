@@ -12,6 +12,8 @@
   --maxWidth-4xl: 56rem;
   --maxWidth-full: "100%";
   --maxWidth-wrapper: 60rem;
+  /* Side inset scales with viewport; keeps the max-width column centered on wide screens */
+  --layout-screen-inset-x: clamp(0.75rem, 5.5vw + 0.5rem, 8.5rem);
   --spacing-px: "1px";
   --spacing-0: 0;
   --spacing-1: 0.25rem;
@@ -81,6 +83,10 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  margin: 0;
+  padding-left: var(--layout-screen-inset-x);
+  padding-right: var(--layout-screen-inset-x);
+  box-sizing: border-box;
 }
 
 footer {
@@ -241,9 +247,13 @@ a:focus {
 /* Custom classes */
 
 .global-wrapper {
-  margin: var(--spacing-0) auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-1) var(--spacing-3);
+  width: 100%;
+  box-sizing: border-box;
+  /* Horizontal padding is mostly from body; keep modest inner padding for typography */
+  padding: var(--spacing-1) var(--spacing-2);
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {

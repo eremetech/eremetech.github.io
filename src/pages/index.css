@@ -15,17 +15,19 @@ a:hover{
   display: flex;
   margin-bottom: 2em;
   align-items: center;
-  margin-right: -2rem; /* Allow text to expand more to the right */
+  margin-right: 0;
+}
+
+/* Let home hero breathe into side padding on smaller viewports only */
+@media (max-width: 64rem) {
+  .hero {
+    margin-right: -2rem;
+  }
 }
 
 .hero > div:not(.profile-pic) {
   flex: 1;
   max-width: none;
-}
-
-/* Reduce right padding on home page to let text expand more */
-:global(.global-wrapper[data-is-root-path="true"]) {
-  padding-right: 0.5rem;
 }
 
 .representative {
@@ -121,11 +123,12 @@ li {
   font-weight: 600;
 }
 .navbar {
-  margin: 2em 0 0 0;
+  margin-top: 2em;
+  margin-bottom: clamp(1.75rem, 2vw + 1rem, 4.5rem);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 3em;
+  gap: clamp(1.75rem, 2.75vw + 0.5rem, 5.5rem);
 }
 
 .selected {
