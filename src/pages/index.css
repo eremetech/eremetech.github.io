@@ -167,12 +167,16 @@ li {
   gap: 2.5em;
   margin: 3em 0;
   max-width: 1400px;
+  align-items: stretch;
 }
 
 .project-box-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
 }
 
 .project-box-link:hover,
@@ -193,6 +197,9 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: 2em;
+  flex: 1;
+  min-height: max(220px, 100%);
+  box-sizing: border-box;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
     0 4px 6px rgba(111, 133, 113, 0.1),
@@ -206,6 +213,7 @@ li {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .project-box:hover {
@@ -262,7 +270,7 @@ li {
 }
 
 .project-description {
-  margin: 0 0 1.5em 0;
+  margin: 0;
   font-size: 0.95em;
   line-height: 1.7;
   color: #444;
