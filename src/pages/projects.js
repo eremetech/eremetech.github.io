@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import css from "./index.css"
 import pluspunkteLogo from "../images/pluspunkte2.png"
-import shakehandsLogo from "../images/shakehands.webp"
+import shakehandsLogo from "../images/handshakes.webp"
 import menstedoLogo from "../images/menstedo_logo.png"
 import designBoardLogo from "../images/design_board_logo.png"
 
