@@ -67,6 +67,26 @@ const projectsData = {
 }
 
 const ProjectDetailPage = ({ params, pageContext, location }) => {
+  const [lightbox, setLightbox] = React.useState(null)
+
+  React.useEffect(() => {
+    const onKeyDown = e => {
+      if (e.key === "Escape") setLightbox(null)
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [])
+
+  React.useEffect(() => {
+    if (lightbox) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = "hidden"
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [lightbox])
+
   // Try multiple ways to get the slug (Gatsby File System Route API)
   let slug = params?.slug || pageContext?.params?.slug || pageContext?.slug
   
@@ -95,9 +115,38 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
     )
   }
 
+  const closeLightbox = () => setLightbox(null)
+
   return (
     <Layout location={location} title={project.title}>
       <div>
+        {lightbox && (
+          <div
+            className="lightbox-backdrop"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged image"
+          >
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={e => {
+                e.stopPropagation()
+                closeLightbox()
+              }}
+              aria-label="Close enlarged image"
+            >
+              ×
+            </button>
+            <img
+              src={lightbox.src}
+              alt={lightbox.alt}
+              className="lightbox-image"
+              onClick={e => e.stopPropagation()}
+            />
+          </div>
+        )}
         <div className="navbar">
           <a href='/'> home </a>
           <a href="/research">research</a>
@@ -109,7 +158,19 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
           <div className="project-detail-header">
             {project.logo && (
               <div className="project-detail-logo">
-                <img src={project.logo} alt={`${project.title} logo`} />
+                <button
+                  type="button"
+                  className="project-detail-logo-trigger"
+                  onClick={() =>
+                    setLightbox({
+                      src: project.logo,
+                      alt: `${project.title} logo`,
+                    })
+                  }
+                  aria-label={`View ${project.title} logo larger`}
+                >
+                  <img src={project.logo} alt="" />
+                </button>
               </div>
             )}
             <div className="project-detail-title-section">
@@ -133,6 +194,7 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
                       ? screen.includes('.mov') || screen.includes('.mp4') || screen.includes('.webm')
                       : screen.toString().includes('.mov') || screen.toString().includes('.mp4') || screen.toString().includes('.webm');
                     
+                    const alt = `${project.title} screen ${index + 1}`
                     return (
                       <div key={index} className="screen-item">
                         {isVideo ? (
@@ -145,7 +207,16 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
                             Your browser does not support the video tag.
                           </video>
                         ) : (
-                          <img src={screen} alt={`${project.title} screen ${index + 1}`} />
+                          <button
+                            type="button"
+                            className="screen-item-image-trigger"
+                            onClick={() =>
+                              setLightbox({ src: screen, alt })
+                            }
+                            aria-label={`Open ${alt} full size`}
+                          >
+                            <img src={screen} alt={alt} />
+                          </button>
                         )}
                       </div>
                     );
