@@ -23,7 +23,7 @@ const ProjectsPage = ({ data, location }) => {
     },
     {
       id: 2,
-      slug: "Shakehands",
+      slug: "shakehands",
       title: "shakehands",
       description: "Meet the friends of your friends without an intro.",
       functionality: "Connect with friends of friends seamlessly. Discover new connections in your extended network without needing formal introductions.",
