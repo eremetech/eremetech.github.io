@@ -15,6 +15,7 @@ const LandingPage = ({ data, location }) => {
           <Link className="selected" to='/'> home </Link>
           <Link to="/research">research</Link>
           <Link to="/projects">projects</Link>
+          <Link to="/taste">taste</Link>
           <Link to="/whatif">parallel universe</Link>
         </div>
         <div className="hero">

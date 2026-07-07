@@ -106,6 +106,7 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
             <Link to='/'> home </Link>
             <Link to="/research">research</Link>
             <Link to="/projects">projects</Link>
+            <Link to="/taste">taste</Link>
             <Link to="/whatif">parallel universe</Link>
           </div>
           <h3>Project not found</h3>
@@ -151,6 +152,7 @@ const ProjectDetailPage = ({ params, pageContext, location }) => {
           <a href='/'> home </a>
           <a href="/research">research</a>
           <a href="/projects">projects</a>
+          <a href="/taste">taste</a>
           <a href="/whatif">parallel universe</a>
         </div>
         <Link to="/projects" className="back-link">← Back to projects</Link>

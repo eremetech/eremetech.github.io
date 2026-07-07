@@ -179,6 +179,7 @@ const GalleryPage = ({ data, location }) => {
           <Link to='/'> home </Link>
           <Link to="/research">research</Link>
           <Link to="/projects">projects</Link>
+          <Link to="/taste">taste</Link>
           <Link to="/whatif">what if</Link>
         </div>
         <h3> virtual gallery </h3>

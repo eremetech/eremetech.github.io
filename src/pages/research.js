@@ -15,6 +15,7 @@ const ResearchPage = ({ data, location }) => {
           <Link to='/'> home </Link>
           <Link className="selected" to="/research">research</Link>
           <Link to="/projects">projects</Link>
+          <Link to="/taste">taste</Link>
           <Link to="/whatif">parallel universe</Link>
         </div>
         <h3> research </h3>

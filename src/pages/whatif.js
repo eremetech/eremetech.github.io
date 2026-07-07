@@ -18,6 +18,7 @@ const WhatIfPage = ({ data, location }) => {
           <Link to='/'> home </Link>
           <Link to="/research">research</Link>
           <Link to="/projects">projects</Link>
+          <Link to="/taste">taste</Link>
           <Link className="selected" to="/whatif">what if</Link>
         </div>
         <h3> what if </h3>
