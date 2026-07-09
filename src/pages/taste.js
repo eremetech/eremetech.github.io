@@ -84,14 +84,15 @@ const TastePage = ({ data, location }) => {
   }
 
   // Fixed two-column layout: items never move between columns while the
-  // Instagram embeds hydrate. Each column alternates short landscape site
-  // shots with tall portrait posts, and rotates dark / pastel / vivid tones.
+  // Instagram embeds hydrate. Row 1 (the two top sites) is swapped with row 2,
+  // and row 3 (the next two sites) is swapped with row 4 — real reordering,
+  // not a visual shift, so nothing leaves a gap or gets pushed off the column.
   const columns = [
     [
-      { type: "site", key: "cthdrl" },                                                              // dark, editorial type
       { type: "instagram", url: "https://www.instagram.com/p/DYmBJUujerL/" },                       // thierrylechanteur — pastel beach kiosk
-      { type: "site", key: "cashapp" },                                                             // vivid green
+      { type: "site", key: "cthdrl" },                                                              // dark, editorial type
       { type: "instagram", url: "https://www.instagram.com/reel/DZe4-i4NAnT/" },                    // brontemarkwick — apples reel
+      { type: "site", key: "cashapp" },                                                             // vivid green
       { type: "instagram", url: "https://www.instagram.com/p/DZABAN8DL_W/?img_index=3" },           // giz.akdag — blue house, tulips
       { type: "site", key: "driftime" },                                                            // pink-mauve satellite texture
       { type: "instagram", url: "https://www.instagram.com/reel/DYfN9tXtM_d/" },                    // mackkeane — dark reel
@@ -100,10 +101,10 @@ const TastePage = ({ data, location }) => {
       { type: "instagram", url: "https://www.instagram.com/p/DZxjPiAijnt/?igsh=Y3JxazR4ejl2bHB2" }, // notre.arte — maroon dome
     ],
     [
-      { type: "site", key: "digilab" },                                                             // cream, soft
       { type: "instagram", url: "https://www.instagram.com/p/DYIdmnqGug-/" },                       // designmilk — pink lamp
-      { type: "site", key: "redisagency" },                                                         // black, red radish
+      { type: "site", key: "digilab" },                                                             // cream, soft
       { type: "instagram", url: "https://www.instagram.com/reel/DX6ZxtSMrJj/" },                    // chaudsoleil — hotel reel
+      { type: "site", key: "redisagency" },                                                         // black, red radish
       { type: "instagram", url: "https://www.instagram.com/p/DY7S4haxOEu/" },                       // thetinybigsister — knitted houses
       { type: "site", key: "gsap" },                                                                // dark, cream type
       { type: "instagram", url: "https://www.instagram.com/p/DYpvPuuDP8f/?img_index=2" },           // giz.akdag — wait for it

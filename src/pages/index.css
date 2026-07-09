@@ -733,8 +733,10 @@ li {
 
 .taste-instagram-card {
   display: block;
-  /* Reserve space while the Instagram iframe hydrates to limit layout shift */
-  min-height: 480px;
+  /* Reserve space while the Instagram iframe hydrates to limit layout shift.
+     Kept below the shortest real embed height (reels settle ~451px) so this
+     floor never outlives the content and leaves dead space underneath it. */
+  min-height: 420px;
 }
 
 @media only screen and (max-width: 700px) {
